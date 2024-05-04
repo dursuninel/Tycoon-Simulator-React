@@ -1,38 +1,112 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*:not(img, svg, i) {
+  font-family: "Poppins", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.product_bant_flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product_bant_flex .product_bant_item {
+  border: 1px solid grey;
+  border-radius: .35rem;
+  width: calc((100% / 3) - .67rem);
+  height: 25rem;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.new_bant_area {
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  cursor: pointer;
+  background-color: #00d90038;
+  transition: background-color 250ms;
+}
+
+.new_bant_area:hover {
+  background-color: #00d90068;
+}
+
+.product_bant_item video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.product_bant_item .status {
+  background-color: #00d900;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  font-size: .95rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+}
+
+.station_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 3rem);
+
+  z-index: 1;
+}
+
+.icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffc107;
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.info {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
   color: white;
+
+  opacity: 0;
+  transition: opacity 250ms;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.icon:hover+.info {
+  opacity: 1;
 }
