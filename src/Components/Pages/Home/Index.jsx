@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Index({
-    employees,
     productCount,
     productionSpeed,
     rawMaterials,
@@ -9,15 +9,9 @@ function Index({
     producedLimit,
     gameSpeed,
     employeesCount,
-    setEmployees,
     setProductCount,
-    setProductionSpeed,
     setRawMaterials,
-    setRawMaterialsUsing,
-    setProducedLimit,
-    setGameSpeed,
-    setEmployeesCount,
-    Employee,
+    setProducedLimit
 }) {
 
 
@@ -79,20 +73,7 @@ function Index({
         isLimit
     ]);
 
-    function checkEmployee(amount) {
-        try {
-            setProductionSpeed(productionSpeed + amount);
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
-    function addEmployee(name, production) {
-        let newEmployees = [...employees, new Employee(name, production)];
-        setEmployees(newEmployees);
-        setEmployeesCount(newEmployees.length);
-        checkEmployee(production);
-    }
 
     function handleRawMaterialAddition(event) {
         event.preventDefault();
@@ -114,11 +95,15 @@ function Index({
                                     <p className="text-center mb-0" id="product_count">
                                         {productCount}
                                     </p>
+                                    <div className='product_limit_viewer'><span style={{ width: `${(productCount / producedLimit) * 100}%`, backgroundColor: (productCount / producedLimit) * 100 <= 50 ? "green" : (productCount / producedLimit) * 100 > 50 && (productCount / producedLimit) * 100 <= 80 ? "yellow" : (productCount / producedLimit) * 100 > 80 ? "red" : "black" }}></span></div>
+                                </div>
+                                <div className='card-footer'>
+                                    <div className="btn btn-primary w-100">
+                                        Üretim Hızı: <span id="production_speed">{productionSpeed}</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="btn btn-primary w-100 mt-1">
-                                Üretim Hızı: <span id="production_speed">{productionSpeed}</span>
-                            </div>
+
                             <button
                                 className="btn btn-success w-100 mt-1"
                                 onClick={() => setProducedLimit(producedLimit + 50)}
@@ -134,25 +119,12 @@ function Index({
                                         {employeesCount}
                                     </p>
                                 </div>
+                                <div className='card-footer'>
+                                    <NavLink to={"human-resources"} className="btn btn-primary w-100">
+                                        İşçi Satın Al
+                                    </NavLink>
+                                </div>
                             </div>
-                            <button
-                                className="btn btn-success w-100 mt-1"
-                                onClick={() => addEmployee("Name", 1)}
-                            >
-                                1 Ürün Üreten İşci Ekle
-                            </button>
-                            <button
-                                className="btn btn-success w-100 mt-1"
-                                onClick={() => addEmployee("Name", 2)}
-                            >
-                                2 Ürün Üreten İşci Ekle
-                            </button>
-                            <button
-                                className="btn btn-success w-100 mt-1"
-                                onClick={() => addEmployee("Name", 3)}
-                            >
-                                3 Ürün Üreten İşci Ekle
-                            </button>
                         </div>
                         <div className="col-sm-4">
                             <div className="card">
@@ -162,13 +134,16 @@ function Index({
                                         {rawMaterials}
                                     </p>
                                 </div>
+                                <div className='card-footer'>
+                                    <div className="btn btn-primary w-100">
+                                        Materyal Kullanım Hızı:{" "}
+                                        <span id="raw_material_using_speed">
+                                            {productionSpeed * rawMaterialsUsing}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="btn btn-primary w-100 mt-1">
-                                Materyal Kullanım Hızı:{" "}
-                                <span id="raw_material_using_speed">
-                                    {productionSpeed * rawMaterialsUsing}
-                                </span>
-                            </div>
+
                             <form
                                 className="addRawMaterial_form mt-2 w-100 d-flex flex-column"
                                 onSubmit={handleRawMaterialAddition}

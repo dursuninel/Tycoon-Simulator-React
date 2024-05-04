@@ -4,6 +4,8 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 
 import Home from './Components/Pages/Home/Index';
 import StationManagement from './Components/Pages/StationManagement/Index';
+import HumanResources from './Components/Pages/HumanResources/Index';
+import Header from './Components/Layouts/Header';
 
 
 function Employee(name, production) {
@@ -12,6 +14,9 @@ function Employee(name, production) {
 }
 
 function App() {
+
+  const [coin, setCoin] = useState(10000);
+
 
   const [employees, setEmployees] = useState([new Employee("Dursun", 1)]);
   const [productCount, setProductCount] = useState(0);
@@ -24,10 +29,11 @@ function App() {
 
   return (
     <>
+      <Header coin={coin} />
       <div className='d-flex w-100'>
 
         <div className="">
-          <ul>
+          <ul className='navigate'>
             <li>
               <NavLink to="/">
                 Dashboard
@@ -38,29 +44,65 @@ function App() {
                 İstasyon Yönetimi
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/human-resources">
+                İnsan Kaynakları
+              </NavLink>
+            </li>
           </ul>
         </div>
 
         <div className="w-100">
+          <Home
+
+
+            productCount={productCount}
+            productionSpeed={productionSpeed}
+            rawMaterials={rawMaterials}
+            rawMaterialsUsing={rawMaterialsUsing}
+            producedLimit={producedLimit}
+            setProducedLimit={setProducedLimit}
+
+            gameSpeed={gameSpeed}
+            setGameSpeed={setGameSpeed}
+
+            employeesCount={employeesCount}
+
+            setProductCount={setProductCount}
+            setProductionSpeed={setProductionSpeed}
+
+            setRawMaterials={setRawMaterials}
+            setRawMaterialsUsing={setRawMaterialsUsing}
+          />
+
           <Routes>
-            <Route path="/" element={<Home employees={employees}
-              productCount={productCount}
-              productionSpeed={productionSpeed}
-              rawMaterials={rawMaterials}
-              rawMaterialsUsing={rawMaterialsUsing}
-              producedLimit={producedLimit}
-              gameSpeed={gameSpeed}
-              employeesCount={employeesCount}
-              setEmployees={setEmployees}
-              setProductCount={setProductCount}
-              setProductionSpeed={setProductionSpeed}
-              setRawMaterials={setRawMaterials}
-              setRawMaterialsUsing={setRawMaterialsUsing}
-              setProducedLimit={setProducedLimit}
-              setGameSpeed={setGameSpeed}
-              setEmployeesCount={setEmployeesCount}
-              Employee={Employee} />} />
+            {/* <Route path="/" element={} /> */}
+
             <Route path="/station-management" element={<StationManagement />} />
+
+
+            <Route path="/human-resources" element={<HumanResources
+              coin={coin}
+              setCoin={setCoin}
+
+              Employee={Employee}
+              employees={employees}
+              setEmployees={setEmployees}
+
+              employeesCount={employeesCount}
+              setEmployeesCount={setEmployeesCount}
+
+
+              setProductionSpeed={setProductionSpeed}
+              productionSpeed={productionSpeed}
+
+
+
+            />} />
+
+
+
+
           </Routes>
         </div>
       </div>
