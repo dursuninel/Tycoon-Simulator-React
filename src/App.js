@@ -5,6 +5,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import Home from './Components/Pages/Home/Index';
 import StationManagement from './Components/Pages/StationManagement/Index';
 import HumanResources from './Components/Pages/HumanResources/Index';
+import Patents from './Components/Pages/Patents/Index';
 import Header from './Components/Layouts/Header';
 
 
@@ -47,6 +48,11 @@ function App() {
             <li>
               <NavLink to="/human-resources">
                 İnsan Kaynakları
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/patents">
+                Ürün Patentleri
               </NavLink>
             </li>
           </ul>
@@ -100,7 +106,8 @@ function App() {
 
             />} />
 
-
+            <Route path="/patents" element={<Patents coin={coin}
+              setCoin={setCoin} />} />
 
 
           </Routes>
