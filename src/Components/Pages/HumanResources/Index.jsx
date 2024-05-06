@@ -18,9 +18,6 @@ function Index({
     });
 
 
-    console.log(coin)
-
-
     function checkEmployee(amount) {
         try {
             setProductionSpeed(productionSpeed + amount);

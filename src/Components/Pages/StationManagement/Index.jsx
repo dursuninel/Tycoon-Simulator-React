@@ -3,11 +3,11 @@ import React from 'react'
 function Index() {
     return (
         <main>
-            <section class="py-2">
-                <div class="container">
-                    <div class="product_bant_flex">
-                        <div class="product_bant_item">
-                            <div class="new_bant_area">
+            <section className="py-2">
+                <div className="container">
+                    <div className="product_bant_flex">
+                        <div className="product_bant_item">
+                            <div className="new_bant_area">
                                 <h2>
                                     Ürün Bandı Oluştur
                                 </h2>
@@ -17,16 +17,16 @@ function Index() {
 
                             </div>
                         </div>
-                        <div class="product_bant_item">
-                            <video src="https://storage.acerapps.io/app-1528/out/station.mp4" autoplay muted loop></video>
-                            <div class="status">
+                        <div className="product_bant_item">
+                            <video src="https://storage.acerapps.io/app-1528/out/station.mp4" autoPlay muted loop></video>
+                            <div className="status">
                                 Bu İstasyon Çalışıyor
                             </div>
-                            <div class="station_info">
-                                <div class="icon">
+                            <div className="station_info">
+                                <div className="icon">
                                     ?
                                 </div>
-                                <div class="info">
+                                <div className="info">
                                     Bu istasyon x ürününü üretiyor.
                                     <p>
                                         Ürün başı <span>x</span> TL

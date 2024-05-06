@@ -4,6 +4,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+body,
+html {
+  overflow: hidden;
+}
+
+.page_content {
+  overflow-y: auto;
+  height: calc(100vh - 5rem);
+}
+
 .product_bant_flex {
   display: flex;
   flex-wrap: wrap;
@@ -138,8 +148,9 @@ header {
 }
 
 .header_flex {
-  padding: 1rem 2rem;
-  height: 100%;
+  padding: 0 2rem;
+  height: 5rem;
+  /* height: 100%; */
   width: 100%;
   display: flex;
   justify-content: space-between;

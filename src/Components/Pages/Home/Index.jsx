@@ -31,7 +31,6 @@ function Index({
                 setProductCount(producedLimit);
                 setIsLimit(true)
                 console.log("Depo Sınırı Doldu")
-                console.log(excessProducts * rawMaterialsUsing);
             }
             else {
                 setProductCount(productCount + produced_items);

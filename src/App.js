@@ -14,9 +14,15 @@ function Employee(name, production) {
   this.production = production;
 }
 
+function Patent(patentName, patentPrice, productPrice) {
+  this.patentName = patentName;
+  this.patentPrice = patentPrice;
+  this.productPrice = productPrice;
+}
+
 function App() {
 
-  const [coin, setCoin] = useState(10000);
+  const [coin, setCoin] = useState(1000000);
 
 
   const [employees, setEmployees] = useState([new Employee("Dursun", 1)]);
@@ -27,6 +33,14 @@ function App() {
   const [producedLimit, setProducedLimit] = useState(100);
   const [gameSpeed, setGameSpeed] = useState(1000);
   const [employeesCount, setEmployeesCount] = useState(employees.length);
+
+
+  const [patents, setPatents] = useState([]);
+
+  useEffect(() => {
+    console.log(patents)
+  }, [patents]);
+
 
   return (
     <>
@@ -59,58 +73,69 @@ function App() {
         </div>
 
         <div className="w-100">
-          <Home
 
 
-            productCount={productCount}
-            productionSpeed={productionSpeed}
-            rawMaterials={rawMaterials}
-            rawMaterialsUsing={rawMaterialsUsing}
-            producedLimit={producedLimit}
-            setProducedLimit={setProducedLimit}
-
-            gameSpeed={gameSpeed}
-            setGameSpeed={setGameSpeed}
-
-            employeesCount={employeesCount}
-
-            setProductCount={setProductCount}
-            setProductionSpeed={setProductionSpeed}
-
-            setRawMaterials={setRawMaterials}
-            setRawMaterialsUsing={setRawMaterialsUsing}
-          />
-
-          <Routes>
-            {/* <Route path="/" element={} /> */}
-
-            <Route path="/station-management" element={<StationManagement />} />
+          <div className='page_content'>
+            <Home
 
 
-            <Route path="/human-resources" element={<HumanResources
-              coin={coin}
-              setCoin={setCoin}
+              productCount={productCount}
+              productionSpeed={productionSpeed}
+              rawMaterials={rawMaterials}
+              rawMaterialsUsing={rawMaterialsUsing}
+              producedLimit={producedLimit}
+              setProducedLimit={setProducedLimit}
 
-              Employee={Employee}
-              employees={employees}
-              setEmployees={setEmployees}
+              gameSpeed={gameSpeed}
+              setGameSpeed={setGameSpeed}
 
               employeesCount={employeesCount}
-              setEmployeesCount={setEmployeesCount}
 
-
+              setProductCount={setProductCount}
               setProductionSpeed={setProductionSpeed}
-              productionSpeed={productionSpeed}
+
+              setRawMaterials={setRawMaterials}
+              setRawMaterialsUsing={setRawMaterialsUsing}
+            />
+            <Routes>
+              {/* <Route path="/" element={} /> */}
+
+              <Route path="/station-management" element={<StationManagement />} />
+
+
+              <Route path="/human-resources" element={<HumanResources
+                coin={coin}
+                setCoin={setCoin}
+
+                Employee={Employee}
+                employees={employees}
+                setEmployees={setEmployees}
+
+                employeesCount={employeesCount}
+                setEmployeesCount={setEmployeesCount}
+
+
+                setProductionSpeed={setProductionSpeed}
+                productionSpeed={productionSpeed}
 
 
 
-            />} />
+              />} />
 
-            <Route path="/patents" element={<Patents coin={coin}
-              setCoin={setCoin} />} />
+              <Route path="/patents" element={<Patents
+                coin={coin}
+                setCoin={setCoin}
+
+                patents={patents}
+                setPatents={setPatents}
+
+                Patent={Patent}
+              />} />
 
 
-          </Routes>
+
+            </Routes>
+          </div>
         </div>
       </div>
     </>
