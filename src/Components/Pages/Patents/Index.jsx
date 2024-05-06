@@ -13,11 +13,10 @@ function Index({ coin,
 
 
     let addPatent = (patentName, patentPrice, productPrice) => {
-        // let newEmployees = [...employees, new Employee(name, production)];
-        // setEmployees(newEmployees);
-        
-        // setPatents(patent => [...patent, {new Patent()}])
-        // patentName: patentName, patentPrice: patentPrice, productPrice: productPrice
+        let newPatents = [...patents, new Patent(patentName, patentPrice, productPrice)];
+        setPatents(newPatents);
+        setCoin(coin - patentPrice)
+        // checkEmployee(production);
     }
 
 
@@ -71,7 +70,7 @@ function Index({ coin,
                                     <span>
                                         {formatter.format(5000)}
                                     </span>
-                                    <button className='btn btn-success w-100' disabled={coin >= 5000 ? false : true}>
+                                    <button className='btn btn-success w-100' disabled={coin >= 5000 ? false : true} onClick={coin >= 5000 ? () => addPatent("Başlangıç Patent", 5000, 10) : () => console.log("Geçersiz İşlem")}>
                                         Patenti Al
                                     </button>
                                 </div>
@@ -88,7 +87,7 @@ function Index({ coin,
                                     <span>
                                         {formatter.format(15000)}
                                     </span>
-                                    <button className='btn btn-success w-100' disabled={coin >= 15000 ? false : true}>
+                                    <button className='btn btn-success w-100' disabled={coin >= 15000 ? false : true} onClick={coin >= 15000 ? () => addPatent("Orta Patent", 15000, 20) : () => console.log("Geçersiz İşlem")}>
                                         Patenti Al
                                     </button>
                                 </div>
@@ -106,7 +105,7 @@ function Index({ coin,
                                     <span>
                                         {formatter.format(30000)}
                                     </span>
-                                    <button className='btn btn-success w-100' disabled={coin >= 30000 ? false : true}>
+                                    <button className='btn btn-success w-100' disabled={coin >= 30000 ? false : true} onClick={coin >= 30000 ? () => addPatent("Yüksek Patent", 30000, 30) : () => console.log("Geçersiz İşlem")}>
                                         Patenti Al
                                     </button>
                                 </div>
@@ -123,7 +122,7 @@ function Index({ coin,
                                     <span>
                                         {formatter.format(60000)}
                                     </span>
-                                    <button className='btn btn-success w-100' disabled={coin >= 60000 ? false : true}>
+                                    <button className='btn btn-success w-100' disabled={coin >= 60000 ? false : true} onClick={coin >= 60000 ? () => addPatent("Gelişmiş Patent", 60000, 50) : () => console.log("Geçersiz İşlem")}>
                                         Patenti Al
                                     </button>
                                 </div>
@@ -131,7 +130,7 @@ function Index({ coin,
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

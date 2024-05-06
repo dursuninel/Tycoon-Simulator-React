@@ -22,7 +22,7 @@ function Patent(patentName, patentPrice, productPrice) {
 
 function App() {
 
-  const [coin, setCoin] = useState(1000000);
+  const [coin, setCoin] = useState(1000);
 
 
   const [employees, setEmployees] = useState([new Employee("Dursun", 1)]);
