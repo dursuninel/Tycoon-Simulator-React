@@ -111,6 +111,7 @@ function Index({ coin,
                                 </div>
                             </div>
                         </div>
+                        
                         <div className='col-lg-3 col-md-6'>
                             <div className="card text-center">
                                 <img src="https://storage.acerapps.io/app-1528/out/pt.jpg" className="card-img-top" alt="..." />
