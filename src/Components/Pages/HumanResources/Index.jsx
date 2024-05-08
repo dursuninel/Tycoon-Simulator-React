@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatCoin } from '../../FormatterCoin';
 
 function Index({
     coin,
@@ -11,12 +12,6 @@ function Index({
     setProductionSpeed,
     productionSpeed
 }) {
-
-    const formatter = new Intl.NumberFormat('tr-TR', {
-        style: 'currency',
-        currency: 'TRY',
-    });
-
 
     function checkEmployee(amount) {
         try {
@@ -47,7 +42,7 @@ function Index({
                             </div>
                             <div className='card-footer'>
                                 <span>
-                                    {formatter.format(10000)}
+                                    {formatCoin(10000)}
                                 </span>
                                 <button className='btn btn-success w-100' disabled={coin >= 10000 ? false : true} onClick={() => addEmployee("Name", 1, 10000)}>
                                     İşe Al
@@ -64,7 +59,7 @@ function Index({
                             </div>
                             <div className='card-footer'>
                                 <span>
-                                    {formatter.format(20000)}
+                                    {formatCoin(20000)}
                                 </span>
                                 <button className='btn btn-success w-100' disabled={coin >= 20000 ? false : true} onClick={() => addEmployee("Name", 2, 20000)}>
                                     İşe Al
@@ -81,7 +76,7 @@ function Index({
                             </div>
                             <div className='card-footer'>
                                 <span>
-                                    {formatter.format(30000)}
+                                    {formatCoin(30000)}
                                 </span>
                                 <button className='btn btn-success w-100' disabled={coin >= 30000 ? false : true} onClick={() => addEmployee("Name", 3, 30000)}>
                                     İşe Al
@@ -98,7 +93,7 @@ function Index({
                             </div>
                             <div className='card-footer'>
                                 <span>
-                                    {formatter.format(40000)}
+                                    {formatCoin(40000)}
                                 </span>
                                 <button className='btn btn-success w-100' disabled={coin >= 40000 ? false : true} onClick={() => addEmployee("Name", 4, 40000)}>
                                     İşe Al
@@ -131,7 +126,7 @@ function Index({
                                         İşçi Al
                                     </p>
                                     <span>
-                                        {formatter.format(2000)}
+                                        {formatCoin(2000)}
                                     </span>
                                 </button>
                             </div>
@@ -156,7 +151,7 @@ function Index({
                                         İşçi Al
                                     </p>
                                     <span>
-                                        {formatter.format(2000)}
+                                        {formatCoin(2000)}
                                     </span>
                                 </button>
                             </div>
@@ -182,7 +177,7 @@ function Index({
                                         İşçi Al
                                     </p>
                                     <span>
-                                        {formatter.format(2000)}
+                                        {formatCoin(2000)}
                                     </span>
                                 </button>
                             </div>
@@ -208,7 +203,7 @@ function Index({
                                         İşçi Al
                                     </p>
                                     <span>
-                                        {formatter.format(2000)}
+                                        {formatCoin(2000)}
                                     </span>
                                 </button>
                             </div>
